@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.69.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo Lambda function :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1674049185" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1674049185" rel="stylesheet">
-    <link href="/css/hybrid.css?1674049185" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1674049185" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1674049185" rel="stylesheet">
-    <link href="/css/auto-complete.css?1674049185" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1674049185" rel="stylesheet">
-    <link href="/css/theme.css?1674049185" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1674049185" rel="stylesheet">
+    <link href="/css/nucleus.css?1676536982" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1676536982" rel="stylesheet">
+    <link href="/css/hybrid.css?1676536982" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1676536982" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1676536982" rel="stylesheet">
+    <link href="/css/auto-complete.css?1676536982" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1676536982" rel="stylesheet">
+    <link href="/css/theme.css?1676536982" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1676536982" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1674049185" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1676536982" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1674049185"></script>
+    <script src="/js/jquery-3.3.1.min.js?1676536982"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1674049185"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1674049185"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1676536982"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1676536982"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1674049185"></script>
+<script type="text/javascript" src="/js/search.js?1676536982"></script>
 
     
   </div>
@@ -234,7 +234,7 @@
   
     
     <li data-nav-id="/3-create-api-lambda-function/3-1-create-lambda-function/" title="Tạo Lambda function" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -427,7 +427,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>18-01-2023</font></i>
+        <i><font color=orange>18-02-2023</font></i>
     </left>
     <left>
         <br>
@@ -435,7 +435,6 @@
             <b> Team </b> <br>
            
             <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
-                <a href="https://www.linkedin.com/in/hạnh-phạm-725b7322a/"  style="color:orange">Hạnh Phạm </a> <br>
                
         </i>
         </left>
@@ -524,7 +523,7 @@
 <ul>
 <li>Thêm đoạn script dưới đây để tạo một bảng <strong>Orders</strong> trong DynamoDB.</li>
 </ul>
-<pre tabindex="0"><code>  OrdersTable:
+<pre><code>  OrdersTable:
     Type: AWS::Serverless::SimpleTable
     Properties:
       TableName: Orders
@@ -535,7 +534,7 @@
 <ol start="2">
 <li>Chạy các lệnh dưới đây</li>
 </ol>
-<pre tabindex="0"><code>sam build
+<pre><code>sam build
 sam deploy --guided
 </code></pre><p><img src="/images/3-create-api-lambda-function/3-create-lambda-function-2.png?featherlight=false&amp;width=90pc" alt="CreateOrderTable"></p>
 <ul>
@@ -545,7 +544,7 @@ sam deploy --guided
 <ol start="3">
 <li>Thêm đoạn script dưới đây để tạo function <strong>CheckOutOrder</strong></li>
 </ol>
-<pre tabindex="0"><code>  CheckOutOrder:
+<pre><code>  CheckOutOrder:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: checkout_order
@@ -570,12 +569,12 @@ sam deploy --guided
                 - !Sub arn:aws:sns:${AWS::Region}:${AWS::AccountId}:order-notice
       Environment:
         Variables:
-          QUEUE_NAME: &#34;checkout-queue&#34;
+          QUEUE_NAME: &quot;checkout-queue&quot;
 </code></pre><p><img src="/images/3-create-api-lambda-function/3-create-lambda-function-4.png?featherlight=false&amp;width=90pc" alt="CreateFunctions"></p>
 <ul>
 <li>Thêm đoạn script dưới đây để tạo function <strong>OrderManagement</strong></li>
 </ul>
-<pre tabindex="0"><code>  OrderManagement:
+<pre><code>  OrderManagement:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: order_management
@@ -600,12 +599,12 @@ sam deploy --guided
                 - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/Orders
       Environment:
         Variables:
-          QUEUE_NAME: &#34;checkout-queue&#34;
+          QUEUE_NAME: &quot;checkout-queue&quot;
 </code></pre><p><img src="/images/3-create-api-lambda-function/3-create-lambda-function-5.png?featherlight=false&amp;width=90pc" alt="CreateFunctions"></p>
 <ul>
 <li>Thêm đoạn script dưới đây để tạo function <strong>HandleOrder</strong></li>
 </ul>
-<pre tabindex="0"><code>  HandleOrder:
+<pre><code>  HandleOrder:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: handle_order
@@ -627,12 +626,12 @@ sam deploy --guided
                 - !Sub arn:aws:sqs:${AWS::Region}:${AWS::AccountId}:checkout-queue
       Environment:
         Variables:
-          QUEUE_NAME: &#34;checkout-queue&#34;
+          QUEUE_NAME: &quot;checkout-queue&quot;
 </code></pre><p><img src="/images/3-create-api-lambda-function/3-create-lambda-function-6.png?featherlight=false&amp;width=90pc" alt="CreateFunctions"></p>
 <ul>
 <li>Thêm đoạn script dưới đây để tạo function <strong>DeleteOrder</strong></li>
 </ul>
-<pre tabindex="0"><code>  DeleteOrder:
+<pre><code>  DeleteOrder:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: delete_order
@@ -653,12 +652,12 @@ sam deploy --guided
                 - !Sub arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/Orders
       Environment:
         Variables:
-          QUEUE_NAME: &#34;checkout-queue&#34;
+          QUEUE_NAME: &quot;checkout-queue&quot;
 </code></pre><p><img src="/images/3-create-api-lambda-function/3-create-lambda-function-7.png?featherlight=false&amp;width=90pc" alt="CreateFunctions"></p>
 <ol start="4">
 <li>Thêm các thư mục và tệp source code cho các function. Cấu trúc thư mục như sau:</li>
 </ol>
-<pre tabindex="0"><code>fcj-book-store-sam-ws6
+<pre><code>fcj-book-store-sam-ws6
 ├── fcj-book-store
 │   ├── checkout_order
 │   │   └── checkout_order.py
@@ -674,15 +673,15 @@ sam deploy --guided
 <li>Tạo thư mục tên <strong>checkout_order</strong> trong thư mục <strong>fcj-book-store-sam-ws6/fcj-book-store</strong></li>
 <li>Tạo tệp <strong>checkout_order.py</strong> và sao chép đoạn code sau vào nó.</li>
 </ul>
-<pre tabindex="0"><code>import json
+<pre><code>import json
 import boto3
 import os
 
     
 def lambda_handler(event, context):
-    client = boto3.client(&#34;sqs&#34;)
-    sns = boto3.client(&#39;sns&#39;)
-    queue_name = os.getenv(&#34;QUEUE_NAME&#34;)
+    client = boto3.client(&quot;sqs&quot;)
+    sns = boto3.client('sns')
+    queue_name = os.getenv(&quot;QUEUE_NAME&quot;)
     status = 200
     try:
         response = client.get_queue_url(
@@ -690,43 +689,43 @@ def lambda_handler(event, context):
         )
         
         send_response = client.send_message(
-            QueueUrl=response[&#39;QueueUrl&#39;], 
-            MessageBody=event[&#34;body&#34;]
+            QueueUrl=response['QueueUrl'], 
+            MessageBody=event[&quot;body&quot;]
         )
     except Exception as e:
         status = 400
     
     try:
         response1 = sns.publish(
-            TopicArn=os.environ[&#39;SNS_ARN&#39;],    
-            Message=&#34;There is a new order. Please check it!&#34;,    
+            TopicArn=os.environ['SNS_ARN'],    
+            Message=&quot;There is a new order. Please check it!&quot;,    
         )
     except Exception as e:
         status = 400
         print(e)
 
     return {
-        &#39;statusCode&#39;: status,
-        &#39;body&#39;: json.dumps(response[&#34;ResponseMetadata&#34;]),
-        &#39;headers&#39;: {
-                &#39;Content-Type&#39;: &#39;application/json&#39;,
-                &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;
+        'statusCode': status,
+        'body': json.dumps(response[&quot;ResponseMetadata&quot;]),
+        'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             }
     }
 </code></pre><ul>
 <li>Tạo thư mục tên <strong>order_management</strong> trong thư mục <strong>fcj-book-store-sam-ws6/fcj-book-store</strong></li>
-<li>Tạo
+<li>Tạo 
 <strong>order_management.py</strong> và sao chép đoạn code sau vào nó.</li>
 </ul>
-<pre tabindex="0"><code>import boto3
+<pre><code>import boto3
 import json
 import os
 from boto3.dynamodb.types import TypeDeserializer
 
 # Create SQS client
-sqs_client = boto3.client(&#39;sqs&#39;)
+sqs_client = boto3.client('sqs')
 # Create DynamoDB client
-dynamodb_client = boto3.client(&#39;dynamodb&#39;)
+dynamodb_client = boto3.client('dynamodb')
 serializer = TypeDeserializer()
 
 
@@ -744,18 +743,18 @@ def deserialize(data):
 
 
 def format_db_data(messages, db_data):
-    if &#39;Items&#39; in db_data:
-        format_data = deserialize(db_data[&#34;Items&#34;])
+    if 'Items' in db_data:
+        format_data = deserialize(db_data[&quot;Items&quot;])
     price = 0
     for book_item in format_data:
-        price = book_item[&#39;price&#39;]
-        del book_item[&#39;price&#39;]
-        del book_item[&#39;id&#39;]
+        price = book_item['price']
+        del book_item['price']
+        del book_item['id']
     messages.append({
-        &#34;receiptHandle&#34;: &#34;&#34;,
-        &#34;books&#34;: format_data,
-        &#34;price&#34;: price,
-        &#34;status&#34;: &#34;Processed&#34;
+        &quot;receiptHandle&quot;: &quot;&quot;,
+        &quot;books&quot;: format_data,
+        &quot;price&quot;: price,
+        &quot;status&quot;: &quot;Processed&quot;
     })
 
 
@@ -765,24 +764,24 @@ def get_order_from_dynamodb(messages):
     while True:
         id = str(i)
         data = dynamodb_client.query(
-            TableName=&#34;Orders&#34;, KeyConditionExpression=&#34;id = :id&#34;, ExpressionAttributeValues={&#34;:id&#34;: {&#34;S&#34;: id}})
-        if not data[&#34;Items&#34;]:
+            TableName=&quot;Orders&quot;, KeyConditionExpression=&quot;id = :id&quot;, ExpressionAttributeValues={&quot;:id&quot;: {&quot;S&quot;: id}})
+        if not data[&quot;Items&quot;]:
             break
         format_db_data(messages, data)
         i += 1
 
 
 def get_order_from_sqs(messages):
-    queue_name = os.getenv(&#34;QUEUE_NAME&#34;)
+    queue_name = os.getenv(&quot;QUEUE_NAME&quot;)
     queue = sqs_client.get_queue_url(QueueName=queue_name)
-    queue_url = queue[&#39;QueueUrl&#39;]
+    queue_url = queue['QueueUrl']
     response = sqs_client.get_queue_attributes(
         QueueUrl=queue_url,
-        AttributeNames=[&#39;ApproximateNumberOfMessages&#39;]
+        AttributeNames=['ApproximateNumberOfMessages']
     )
 
     number_of_message = int(
-        response[&#39;Attributes&#39;][&#39;ApproximateNumberOfMessages&#39;])
+        response['Attributes']['ApproximateNumberOfMessages'])
     print(number_of_message)
     i = 0
     while i &lt; number_of_message:
@@ -792,14 +791,14 @@ def get_order_from_sqs(messages):
             WaitTimeSeconds=20,
             VisibilityTimeout=3
         )
-        if &#39;Messages&#39; in msg_list:
-            for m in msg_list[&#39;Messages&#39;]:
-                print(json.loads(m[&#34;Body&#34;]))
+        if 'Messages' in msg_list:
+            for m in msg_list['Messages']:
+                print(json.loads(m[&quot;Body&quot;]))
                 messages.append({
-                    &#34;receiptHandle&#34;: m[&#34;ReceiptHandle&#34;],
-                    &#34;books&#34;: json.loads(m[&#34;Body&#34;])[&#39;books&#39;],
-                    &#34;price&#34;: json.loads(m[&#34;Body&#34;])[&#39;price&#39;],
-                    &#34;status&#34;: &#34;Unprocessed&#34;
+                    &quot;receiptHandle&quot;: m[&quot;ReceiptHandle&quot;],
+                    &quot;books&quot;: json.loads(m[&quot;Body&quot;])['books'],
+                    &quot;price&quot;: json.loads(m[&quot;Body&quot;])['price'],
+                    &quot;status&quot;: &quot;Unprocessed&quot;
                 })
                 i += 1
 
@@ -811,93 +810,95 @@ def lambda_handler(event, context):
     get_order_from_sqs(messages)
     print(messages)
     return{
-        &#39;statusCode&#39;: 200,
-        &#39;body&#39;: json.dumps(messages),
-        &#39;headers&#39;: {
-            &#39;Content-Type&#39;: &#39;application/json&#39;,
-            &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;
+        'statusCode': 200,
+        'body': json.dumps(messages),
+        'headers': {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
     }
+
 </code></pre><ul>
 <li>Tạo thư mục tên <strong>handle_order</strong> trong thư mục <strong>fcj-book-store-sam-ws6/fcj-book-store</strong></li>
-<li>Tạo
+<li>Tạo 
 <strong>handle_order.py</strong> và sao chép đoạn code sau vào nó.</li>
 </ul>
-<pre tabindex="0"><code>import boto3
+<pre><code>import boto3
 import json
 import os
 
-dynamodb_client = boto3.resource(&#39;dynamodb&#39;)
-table = dynamodb_client.Table(&#39;Orders&#39;)
-sqs_client = boto3.client(&#39;sqs&#39;)
+dynamodb_client = boto3.resource('dynamodb')
+table = dynamodb_client.Table('Orders')
+sqs_client = boto3.client('sqs')
 
 
 def lambda_handler(event, context):
-    order_item = json.loads(event[&#34;body&#34;])
-    products_infor = order_item[&#39;books&#39;]
+    order_item = json.loads(event[&quot;body&quot;])
+    products_infor = order_item['books']
     print(order_item)
     for book_item in products_infor:
         print(book_item)
         data = {
-            &#34;id&#34;: str(order_item[&#39;id&#39;]),
-            &#34;book_id&#34;: book_item[&#39;id&#39;],
-            &#34;name&#34;: book_item[&#39;name&#39;],
-            &#34;qty&#34;: str(book_item[&#39;qty&#39;]),
-            &#34;price&#34;: str(order_item[&#39;price&#39;])
+            &quot;id&quot;: str(order_item['id']),
+            &quot;book_id&quot;: book_item['id'],
+            &quot;name&quot;: book_item['name'],
+            &quot;qty&quot;: str(book_item['qty']),
+            &quot;price&quot;: str(order_item['price'])
         }
         print(data)
         table.put_item(Item=data)
 
-    queue_name = os.getenv(&#34;QUEUE_NAME&#34;)
+    queue_name = os.getenv(&quot;QUEUE_NAME&quot;)
     queue = sqs_client.get_queue_url(QueueName=queue_name)
-    queue_url = queue[&#39;QueueUrl&#39;]
+    queue_url = queue['QueueUrl']
     response = sqs_client.delete_message(
         QueueUrl=queue_url,
-        ReceiptHandle=order_item[&#39;receiptHandle&#39;]
+        ReceiptHandle=order_item['receiptHandle']
     )
 
     response = {
-        &#39;statusCode&#39;: 200,
-        &#39;body&#39;: &#39;successfully handle order!&#39;,
-        &#39;headers&#39;: {
-            &#39;Content-Type&#39;: &#39;application/json&#39;,
-            &#34;Access-Control-Allow-Headers&#34;: &#34;Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization&#34;,
-            &#34;Access-Control-Allow-Origin&#34;: &#34;*&#34;,
-            &#34;Access-Control-Allow-Methods&#34;: &#34;GET,PUT,POST,DELETE,OPTIONS&#34;
+        'statusCode': 200,
+        'body': 'successfully handle order!',
+        'headers': {
+            'Content-Type': 'application/json',
+            &quot;Access-Control-Allow-Headers&quot;: &quot;Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization&quot;,
+            &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,
+            &quot;Access-Control-Allow-Methods&quot;: &quot;GET,PUT,POST,DELETE,OPTIONS&quot;
         },
     }
     return response
+
 </code></pre><ul>
 <li>Tạo thư mục tên <strong>delete_order</strong> trong thư mục <strong>fcj-book-store-sam-ws6/fcj-book-store</strong></li>
 <li>Tạo tệp <strong>delete_order.py</strong> và sao chép đoạn code sau vào nó.</li>
 </ul>
-<pre tabindex="0"><code>import boto3
+<pre><code>import boto3
 import json
 import os
 
-dynamodb_client = boto3.client(&#39;dynamodb&#39;)
-sqs_client = boto3.client(&#39;sqs&#39;)
+dynamodb_client = boto3.client('dynamodb')
+sqs_client = boto3.client('sqs')
 
 
 def lambda_handler(event, context):
-    order_item = json.loads(event[&#34;body&#34;])
-    if order_item[&#39;receiptHandle&#39;]:
-        queue_name = os.getenv(&#34;QUEUE_NAME&#34;)
+    order_item = json.loads(event[&quot;body&quot;])
+    if order_item['receiptHandle']:
+        queue_name = os.getenv(&quot;QUEUE_NAME&quot;)
         queue = sqs_client.get_queue_url(QueueName=queue_name)
-        queue_url = queue[&#39;QueueUrl&#39;]
+        queue_url = queue['QueueUrl']
         response = sqs_client.delete_message(
             QueueUrl=queue_url,
-            ReceiptHandle=order_item[&#39;receiptHandle&#39;]
+            ReceiptHandle=order_item['receiptHandle']
         )
 
     response = {
-        &#39;statusCode&#39;: 200,
-        &#39;body&#39;: &#39;successfully handle order!&#39;,
-        &#39;headers&#39;: {
-            &#39;Content-Type&#39;: &#39;application/json&#39;,
-            &#34;Access-Control-Allow-Headers&#34;: &#34;Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization&#34;,
-            &#34;Access-Control-Allow-Origin&#34;: &#34;*&#34;,
-            &#34;Access-Control-Allow-Methods&#34;: &#34;GET,PUT,POST,DELETE,OPTIONS&#34;
+        'statusCode': 200,
+        'body': 'successfully handle order!',
+        'headers': {
+            'Content-Type': 'application/json',
+            &quot;Access-Control-Allow-Headers&quot;: &quot;Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,X-Access-Token, XKey, Authorization&quot;,
+            &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,
+            &quot;Access-Control-Allow-Methods&quot;: &quot;GET,PUT,POST,DELETE,OPTIONS&quot;
         },
     }
     
@@ -905,7 +906,7 @@ def lambda_handler(event, context):
 </code></pre><ol start="5">
 <li>Chạy các lệnh dưới đây</li>
 </ol>
-<pre tabindex="0"><code>sam build
+<pre><code>sam build
 sam deploy --guided
 </code></pre><p><img src="/images/3-create-api-lambda-function/3-create-lambda-function-8.png?featherlight=false&amp;width=90pc" alt="CreateFunctions"></p>
 <ol start="6">
@@ -1125,19 +1126,19 @@ sam deploy --guided
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1674049185"></script>
-    <script src="/js/perfect-scrollbar.min.js?1674049185"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1674049185"></script>
-    <script src="/js/jquery.sticky.js?1674049185"></script>
-    <script src="/js/featherlight.min.js?1674049185"></script>
-    <script src="/js/highlight.pack.js?1674049185"></script>
+    <script src="/js/clipboard.min.js?1676536982"></script>
+    <script src="/js/perfect-scrollbar.min.js?1676536982"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1676536982"></script>
+    <script src="/js/jquery.sticky.js?1676536982"></script>
+    <script src="/js/featherlight.min.js?1676536982"></script>
+    <script src="/js/highlight.pack.js?1676536982"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1674049185"></script>
-    <script src="/js/learn.js?1674049185"></script>
-    <script src="/js/hugo-learn.js?1674049185"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1676536982"></script>
+    <script src="/js/learn.js?1676536982"></script>
+    <script src="/js/hugo-learn.js?1676536982"></script>
 
-    <link href="/mermaid/mermaid.css?1674049185" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1674049185"></script>
+    <link href="/mermaid/mermaid.css?1676536982" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1676536982"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

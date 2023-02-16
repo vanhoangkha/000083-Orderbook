@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>/2-create-sqs-and-sns/2-1-create-sqs/</loc>
     <xhtml:link
@@ -13,7 +14,9 @@
                 hreflang="en"
                 href="/2-create-sqs-and-sns/2-1-create-sqs/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/1-preparation/</loc>
     <xhtml:link
                 rel="alternate"
@@ -25,7 +28,9 @@
                 hreflang="en"
                 href="/1-preparation/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <xhtml:link
                 rel="alternate"
@@ -37,7 +42,9 @@
                 hreflang="en"
                 href="/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/3-create-api-lambda-function/3-1-create-lambda-function/</loc>
     <xhtml:link
                 rel="alternate"
@@ -49,7 +56,9 @@
                 hreflang="en"
                 href="/3-create-api-lambda-function/3-1-create-lambda-function/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/3-create-api-lambda-function/3-2-create-api/</loc>
     <xhtml:link
                 rel="alternate"
@@ -61,7 +70,9 @@
                 hreflang="en"
                 href="/3-create-api-lambda-function/3-2-create-api/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-create-sqs-and-sns/</loc>
     <xhtml:link
                 rel="alternate"
@@ -73,7 +84,9 @@
                 hreflang="en"
                 href="/2-create-sqs-and-sns/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-create-sqs-and-sns/2-2-create-sns/</loc>
     <xhtml:link
                 rel="alternate"
@@ -85,7 +98,9 @@
                 hreflang="en"
                 href="/2-create-sqs-and-sns/2-2-create-sns/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/3-create-api-lambda-function/</loc>
     <xhtml:link
                 rel="alternate"
@@ -97,7 +112,9 @@
                 hreflang="en"
                 href="/3-create-api-lambda-function/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/4-test-operation/</loc>
     <xhtml:link
                 rel="alternate"
@@ -109,7 +126,9 @@
                 hreflang="en"
                 href="/4-test-operation/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/5-cleanup/</loc>
     <xhtml:link
                 rel="alternate"
@@ -121,7 +140,9 @@
                 hreflang="en"
                 href="/5-cleanup/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -133,7 +154,9 @@
                 hreflang="en"
                 href="/categories/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -146,4 +169,5 @@
                 href="/tags/"
                 />
   </url>
+  
 </urlset>
