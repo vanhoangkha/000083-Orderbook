@@ -5,10 +5,10 @@ weight : 1
 chapter : false
 pre : " <b> 3.1 </b> "
 ---
-In this step, we will create a new DynamoDB table to store processed order data and four Lambda functions to store orders, manage orders, delete orders, and process orders with SAM template
+Trong bước này, chúng ta sẽ tạo một bảng DynamoDB mới để lưu dữ liệu đơn hàng đã được xử lý và bốn Lambda function để lưu đơn hàng, quản lý đơn hàng, xoá đơn hàng, xử lý đơn hàng bằng SAM template.
 
-1. Open **template.yaml** file in source code folder - **fcj-book-store-sam-ws6** 
-- Add the below script to create **Orders** table in DynamoDB
+1. Mở tệp **template.yaml** của thư mục source code **fcj-book-store-sam-ws6** đã tải về
+- Thêm đoạn script dưới đây để tạo một bảng **Orders** trong DynamoDB.
 
 ```
   OrdersTable:
@@ -22,18 +22,18 @@ In this step, we will create a new DynamoDB table to store processed order data 
 
 ![CreateOrderTable](/images/3-create-api-lambda-function/3-create-lambda-function-1.png?featherlight=false&width=90pc)
 
-2. Run the below commands
+2. Chạy các lệnh dưới đây
 ```
 sam build
 sam deploy --guided
 ```
 ![CreateOrderTable](/images/3-create-api-lambda-function/3-create-lambda-function-2.png?featherlight=false&width=90pc)
 
-- Open [AWS DynamDB console](https://ap-southeast-1.console.aws.amazon.com/dynamodbv2/home?region=ap-southeast-1#tables) to check
+- Mở bảng điều khiển của [AWS DynamDB](https://ap-southeast-1.console.aws.amazon.com/dynamodbv2/home?region=ap-southeast-1#tables) để kiểm tra
 
 ![CreateOrderTable](/images/3-create-api-lambda-function/3-create-lambda-function-3.png?featherlight=false&width=90pc)
 
-3. Add the below script to create **CheckOutOrder** function
+3. Thêm đoạn script dưới đây để tạo function **CheckOutOrder**
 ```
   CheckOutOrder:
     Type: AWS::Serverless::Function
@@ -65,7 +65,7 @@ sam deploy --guided
 
 ![CreateFunctions](/images/3-create-api-lambda-function/3-create-lambda-function-4.png?featherlight=false&width=90pc)
 
-- Add the below script to create **OrderManagement** function
+- Thêm đoạn script dưới đây để tạo function **OrderManagement**
 ```
   OrderManagement:
     Type: AWS::Serverless::Function
@@ -97,7 +97,7 @@ sam deploy --guided
 
 ![CreateFunctions](/images/3-create-api-lambda-function/3-create-lambda-function-5.png?featherlight=false&width=90pc)
 
-- Add the below script to create **HandleOrder** function
+- Thêm đoạn script dưới đây để tạo function **HandleOrder**
 ```
   HandleOrder:
     Type: AWS::Serverless::Function
@@ -126,7 +126,7 @@ sam deploy --guided
 
 ![CreateFunctions](/images/3-create-api-lambda-function/3-create-lambda-function-6.png?featherlight=false&width=90pc)
 
-- Add the below script to create **DeleteOrder** function
+- Thêm đoạn script dưới đây để tạo function **DeleteOrder**
 ```
   DeleteOrder:
     Type: AWS::Serverless::Function
@@ -154,7 +154,7 @@ sam deploy --guided
 
 ![CreateFunctions](/images/3-create-api-lambda-function/3-create-lambda-function-7.png?featherlight=false&width=90pc)
 
-4. Add directories and source code files for functions. The directory structure is as follows:
+4. Thêm các thư mục và tệp source code cho các function. Cấu trúc thư mục như sau:
 ```
 fcj-book-store-sam-ws6
 ├── fcj-book-store
@@ -169,8 +169,8 @@ fcj-book-store-sam-ws6
 │   ├── ....
 └── template.yaml
 ```
-- Create **checkout_order** folder in **fcj-book-store-sam-ws6/fcj-book-store** folder
-- Create **checkout_order.py** file and copy the below code to it
+- Tạo thư mục tên **checkout_order** trong thư mục **fcj-book-store-sam-ws6/fcj-book-store**
+- Tạo tệp **checkout_order.py** và sao chép đoạn code sau vào nó.
 ```
 import json
 import boto3
@@ -213,8 +213,8 @@ def lambda_handler(event, context):
     }
 ```
 
-- Create **order_management** folder in **fcj-book-store-sam-ws6/fcj-book-store** folder
-- Create **order_management.py** file and copy the below code to it
+- Tạo thư mục tên **order_management** trong thư mục **fcj-book-store-sam-ws6/fcj-book-store**
+- Tạo **order_management.py** và sao chép đoạn code sau vào nó.
 ```
 import boto3
 import json
@@ -318,8 +318,8 @@ def lambda_handler(event, context):
     }
 
 ```
-- Create **handle_order** folder in **fcj-book-store-sam-ws6/fcj-book-store** folder
-- Create **handle_order.py** file and copy the below code to it
+- Tạo thư mục tên **handle_order** trong thư mục **fcj-book-store-sam-ws6/fcj-book-store**
+- Tạo **handle_order.py** và sao chép đoạn code sau vào nó.
 ```
 import boto3
 import json
@@ -367,8 +367,8 @@ def lambda_handler(event, context):
     return response
 
 ```
-- Create **delete_order** folder in **fcj-book-store-sam-ws6/fcj-book-store** folder
-- Create **delete_order.py** file and copy the below code to it
+- Tạo thư mục tên **delete_order** trong thư mục **fcj-book-store-sam-ws6/fcj-book-store**
+- Tạo tệp **delete_order.py** và sao chép đoạn code sau vào nó.
 ```
 import boto3
 import json
@@ -402,7 +402,7 @@ def lambda_handler(event, context):
     
     return response
 ```
-5. Run the below commands
+5. Chạy các lệnh dưới đây
 ```
 sam build
 sam deploy --guided
@@ -410,6 +410,6 @@ sam deploy --guided
 
 ![CreateFunctions](/images/3-create-api-lambda-function/3-create-lambda-function-8.png?featherlight=false&width=90pc)
 
-6. Open [AWS Lambda console](https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1#/functions) to check functions
+6. Mở bảng điều khiển của [AWS Lambda](https://ap-southeast-1.console.aws.amazon.com/lambda/home?region=ap-southeast-1#/functions) để kiểm tra các function.
 
 ![CreateFunctions](/images/3-create-api-lambda-function/3-create-lambda-function-9.png?featherlight=false&width=90pc)
