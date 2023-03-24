@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tạo Lambda function on AWS System Manager</title>
+    <title>Tạo Lambda function on Serverless - Processing orders with SQS and SNS</title>
     <link>/vi/3-create-api-lambda-function/3-1-create-lambda-function/</link>
-    <description>Recent content in Tạo Lambda function on AWS System Manager</description>
+    <description>Recent content in Tạo Lambda function on Serverless - Processing orders with SQS and SNS</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="/vi/3-create-api-lambda-function/3-1-create-lambda-function/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
