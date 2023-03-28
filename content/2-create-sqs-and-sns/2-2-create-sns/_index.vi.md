@@ -3,7 +3,7 @@ title : "Tạo SNS topic"
 date :  "`r Sys.Date()`" 
 weight : 2
 chapter : false
-pre : " <b> 2.1. </b> "
+pre : " <b> 2.2. </b> "
 ---
 1. Mở bảng điều khiển của [Amazon SNS](https://ap-southeast-1.console.aws.amazon.com/sns/v3/home?region=ap-southeast-1#/dashboard)
 
