@@ -29,7 +29,11 @@ sam deploy --guided
 - Login may not have authorization defined, Is this okay? [y/N]: y
 - Register may not have authorization defined, Is this okay? [y/N]: y
 - ConfirmUser may not have authorization defined, Is this okay? [y/N]: y
-Save arguments to configuration file [Y/n]: y
+- Save arguments to configuration file [Y/n]: y
+
+{{% notice note %}}
+Bạn nên cài đặt python3.9 vì các hàm lambda sử dụng python3.9
+{{% /notice %}}
 
 4. Mở bảng điều khiển của [AWS APIs Gateway](https://ap-southeast-1.console.aws.amazon.com/apigateway/main/apis?region=ap-southeast-1)
 
@@ -54,6 +58,8 @@ git clone https://github.com/AWS-First-Cloud-Journey/FCJ-Serverless-Workshop.git
 8. Thực hiện các câu lệnh dưới đây để build project
 ```
 cd FCJ-Serverless-Workshop
+npm install
+npm install --global yarn
 yarn build
 ```
 9. Chúng ta đã build xong front-end. Tiếp theo thực hiện câu lệnh sau để tải thư mục **build** lên S3 bucket
