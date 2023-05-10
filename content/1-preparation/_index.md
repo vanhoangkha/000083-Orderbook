@@ -44,13 +44,13 @@ sam deploy --guided
 
 ![Preparation](/images/1-preparation/1-preparation-4.png?featherlight=false&width=90pc)
 
-7. Run the below command to download the source code of **fcj-serverless-frontend** to your device
+7. Run the below command to download the source code of **FCJ-Serverless-Workshop** to your device
 ```
 git clone https://github.com/AWS-First-Cloud-Journey/FCJ-Serverless-Workshop.git
 ```
 8. Run the below commands to build project
 ```
-cd fcj-serverless-frontend
+cd FCJ-Serverless-Workshop
 yarn build
 ```
 9. We have finished building the front-end. Next, run the below command to upload **build** folder to S3 bucket

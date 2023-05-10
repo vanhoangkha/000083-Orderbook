@@ -1,10 +1,10 @@
 ---
-title : "Serverless - Order processing with SQS-SNS"
+title : "Serverless - Processing orders with SQS and SNS"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Serverless - Order processing with SQS-SNS
+# Serverless - Processing orders with SQS and SNS
 
 #### Overview
 
